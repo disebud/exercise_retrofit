@@ -1,10 +1,10 @@
-package com.disebud.exercise_retrofit.artist
+package com.disebud.exercise_retrofit.roomHotel
 
-class Artist(var id_room: String = ""
+class Room(var id_room: String = ""
              , var name_room: String = ""
              , var price: Int = 0
              , var location : String = ""
-             , var address: FullAddress){
+             , var id_status : String = ""){
 
 }
 

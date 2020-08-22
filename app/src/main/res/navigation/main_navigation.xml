@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/RoomFragment">
+
+    <action
+        android:id="@+id/action_to_RoomFragment"
+        app:destination="@id/RoomFragment" />
+    <action
+        android:id="@+id/action_to_CreateRoomFragment"
+        app:destination="@id/CreateRoomFragment" />
+
+    <fragment
+        android:id="@+id/RoomFragment"
+        android:name="com.disebud.exercise_retrofit.RoomFragment"
+        android:label="fragment_good"
+        tools:layout="@layout/fragment_room" />
+    <fragment
+        android:id="@+id/CreateRoomFragment"
+        android:name="com.disebud.exercise_retrofit.CreateRoomFragment"
+        android:label="fragment_good_add"
+        tools:layout="@layout/fragment_create_room" />
+</navigation>
