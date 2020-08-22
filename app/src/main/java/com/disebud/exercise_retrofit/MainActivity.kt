@@ -14,10 +14,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         artistViewModel.artist.observe(this, Observer {
-            artistNameText1.text = "id : ${it.id}"
-            artistNameText2.text = it.name
-            artistNameText3.text = it.email
-            artistNameText4.text = "city : ${it.address.city}"
+            artistNameText1.text = "ID ROOM : ${it.id_room}"
+            artistNameText2.text = it.name_room
+            artistNameText3.text = it.location
+            artistNameText4.text = "PRICE : ${it.price.toString()}"
         })
     }
 

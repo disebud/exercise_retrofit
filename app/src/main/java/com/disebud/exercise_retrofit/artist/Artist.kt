@@ -1,9 +1,9 @@
 package com.disebud.exercise_retrofit.artist
 
-class Artist(var id: String = ""
-             , var name: String = ""
-             , var username: String = ""
-             , var email: String = ""
+class Artist(var id_room: String = ""
+             , var name_room: String = ""
+             , var price: Int = 0
+             , var location : String = ""
              , var address: FullAddress){
 
 }
@@ -16,8 +16,3 @@ class FullAddress (var street: String = ""
 
 }
 
-class WrapperResponse(var status: String = ""
-              , var message: String = ""
-              , var result: Any){
-
-}
