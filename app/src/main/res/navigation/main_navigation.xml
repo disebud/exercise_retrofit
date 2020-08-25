@@ -14,12 +14,12 @@
 
     <fragment
         android:id="@+id/RoomFragment"
-        android:name="com.disebud.exercise_retrofit.RoomFragment"
+        android:name="com.disebud.exercise_retrofit.screens.RoomFragment"
         android:label="fragment_good"
         tools:layout="@layout/fragment_room" />
     <fragment
         android:id="@+id/CreateRoomFragment"
-        android:name="com.disebud.exercise_retrofit.CreateRoomFragment"
+        android:name="com.disebud.exercise_retrofit.screens.CreateRoomFragment"
         android:label="fragment_good_add"
         tools:layout="@layout/fragment_create_room" />
 </navigation>

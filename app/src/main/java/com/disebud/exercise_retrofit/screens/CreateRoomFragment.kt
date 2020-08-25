@@ -1,15 +1,15 @@
-package com.disebud.exercise_retrofit
+package com.disebud.exercise_retrofit.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import com.disebud.exercise_retrofit.container.AppContainer
+import com.disebud.exercise_retrofit.container.MyApplication
+import com.disebud.exercise_retrofit.R
 import com.disebud.exercise_retrofit.roomHotel.Room
-import com.disebud.exercise_retrofit.roomHotel.RoomViewModel
 import kotlinx.android.synthetic.main.fragment_create_room.*
-import kotlinx.android.synthetic.main.fragment_room.*
 
 //import com.disebud.exercise_retrofit.R
 //import com.disebud.exercise_retrofit.domains.good.Good
@@ -17,12 +17,18 @@ import kotlinx.android.synthetic.main.fragment_room.*
 
 class CreateRoomFragment : Fragment() , View.OnClickListener {
 
-    private val RoomViewModel by activityViewModels<RoomViewModel>()
+//    private val RoomViewModel by activityViewModels<RoomViewModel>()
+    lateinit var  appContainer : AppContainer
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        appContainer = (activity?.application as MyApplication).appContainer
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_create_room, container, false)
     }
 
@@ -39,7 +45,7 @@ class CreateRoomFragment : Fragment() , View.OnClickListener {
                     ,location = locationInput.text.toString()
                     ,price = PriceInput.inputType
                     ,id_status = StatusInput.text.toString())
-                RoomViewModel.saveRoom(room)
+                appContainer.roomViewModel.saveRoom(room)
             }
         }
 

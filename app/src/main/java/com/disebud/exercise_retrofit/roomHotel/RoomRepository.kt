@@ -22,8 +22,8 @@ class RoomRepository (val roomAPI: RoomAPI) {
                     val response = response.body()
                     val gson = Gson()
                     val stringResult = gson.toJson(response?.result)
-                    val artistObject = gson.fromJson<Room>(stringResult,Room::class.java)
-                    room.value = artistObject
+                    val roomObject = gson.fromJson<Room>(stringResult,Room::class.java)
+                    room.value = roomObject
                 }
 
             }
