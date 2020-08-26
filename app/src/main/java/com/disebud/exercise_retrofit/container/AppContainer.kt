@@ -6,9 +6,9 @@ import com.disebud.exercise_retrofit.roomHotel.RoomRepository
 import com.disebud.exercise_retrofit.roomHotel.RoomViewModel
 
 class AppContainer {
-    val roomApi : RoomAPI = RetrofitBuilder.createRetrofit().create(RoomAPI::class.java)
-    val roomRepository : RoomRepository = RoomRepository(roomApi)
-    val roomViewModel : RoomViewModel = RoomViewModel(roomRepository)
+//    val roomApi : RoomAPI = RetrofitBuilder.createRetrofit().create(RoomAPI::class.java)
+//    val roomRepository : RoomRepository = RoomRepository(roomApi)
+//    val roomViewModel : RoomViewModel = RoomViewModel(roomRepository)
 //    val RoomViewModelFactory :
 
 

@@ -7,20 +7,24 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.disebud.exercise_retrofit.container.MyApplication
 import com.disebud.exercise_retrofit.R
+import com.disebud.exercise_retrofit.roomHotel.RoomViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var navController: NavController
+    @Inject lateinit var roomviewModel: RoomViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // application == sebagai parent
-     val appContainer = (application as MyApplication).appContainer
-        appContainer.roomViewModel
+//     val appContainer = (application as MyApplication).appContainer
+//        appContainer.roomViewModel(applicationContext as MyApplication).applicationComponent.inject(this)
 
+        (applicationContext as MyApplication).applicationComponent.inject(this)
         navController = (nav_main_host_fragment_container as NavHostFragment).navController
         NavigationUI.setupWithNavController(bottom_navigation, navController)
 

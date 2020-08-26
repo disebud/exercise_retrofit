@@ -5,8 +5,11 @@ import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class RoomRepository (val roomAPI: RoomAPI) {
+class RoomRepository @Inject constructor(val roomAPI: RoomAPI) {
+//    class RoomRepository @Inject constructor(var roomAPI: RoomAPI) {
+//    }
 
     val room: MutableLiveData<Room> = MutableLiveData<Room>()
 
@@ -31,15 +34,15 @@ class RoomRepository (val roomAPI: RoomAPI) {
     }
 
     fun saveRoom(room: Room){
-        roomAPI.createRoom(room).enqueue(object : Callback<Room> {
-            //jika gagal
-            override fun onFailure(call: Call<Room>, t: Throwable) {
-                t.printStackTrace()
-            }
-            //jika berhasil
-            override fun onResponse(call: Call<Room>, response: Response<Room>) {
-                println(response.isSuccessful)
-                }
-        })
+//        roomAPI.createRoom(room).enqueue(object : Callback<Room> {
+//            //jika gagal
+//            override fun onFailure(call: Call<Room>, t: Throwable) {
+//                t.printStackTrace()
+//            }
+//            //jika berhasil
+//            override fun onResponse(call: Call<Room>, response: Response<Room>) {
+//                println(response.isSuccessful)
+//                }
+//        })
     }
 }

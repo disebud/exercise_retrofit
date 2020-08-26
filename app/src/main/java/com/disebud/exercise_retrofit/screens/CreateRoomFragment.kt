@@ -9,7 +9,9 @@ import com.disebud.exercise_retrofit.container.AppContainer
 import com.disebud.exercise_retrofit.container.MyApplication
 import com.disebud.exercise_retrofit.R
 import com.disebud.exercise_retrofit.roomHotel.Room
+import com.disebud.exercise_retrofit.roomHotel.RoomViewModel
 import kotlinx.android.synthetic.main.fragment_create_room.*
+import javax.inject.Inject
 
 //import com.disebud.exercise_retrofit.R
 //import com.disebud.exercise_retrofit.domains.good.Good
@@ -18,10 +20,14 @@ import kotlinx.android.synthetic.main.fragment_create_room.*
 class CreateRoomFragment : Fragment() , View.OnClickListener {
 
 //    private val RoomViewModel by activityViewModels<RoomViewModel>()
-    lateinit var  appContainer : AppContainer
+//    lateinit var  appContainer : AppContainer
+@Inject lateinit var roomViewModel: RoomViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        appContainer = (activity?.application as MyApplication).appContainer
+//
+//       appContainer = (activity?.application as MyApplication).appContainer
+        (activity?.applicationContext as MyApplication).applicationComponent.inject(this)
     }
 
     override fun onCreateView(
@@ -45,7 +51,7 @@ class CreateRoomFragment : Fragment() , View.OnClickListener {
                     ,location = locationInput.text.toString()
                     ,price = PriceInput.inputType
                     ,id_status = StatusInput.text.toString())
-                appContainer.roomViewModel.saveRoom(room)
+                roomViewModel.saveRoom(room)
             }
         }
 

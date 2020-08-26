@@ -9,17 +9,19 @@ import androidx.lifecycle.Observer
 import com.disebud.exercise_retrofit.container.AppContainer
 import com.disebud.exercise_retrofit.container.MyApplication
 import com.disebud.exercise_retrofit.R
+import com.disebud.exercise_retrofit.roomHotel.RoomViewModel
 import kotlinx.android.synthetic.main.fragment_room.*
+import javax.inject.Inject
 
 class RoomFragment : Fragment(), View.OnClickListener {
 
 //    private val RoomViewModel by activityViewModels<RoomViewModel>()
-    lateinit var  appContainer : AppContainer
-
+//    lateinit var  appContainer : AppContainer
+@Inject lateinit var roomViewModel: RoomViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        appContainer=(activity?.application as MyApplication).appContainer
-
+//        appContainer=(activity?.application as MyApplication).appContainer
+        (activity?.applicationContext as MyApplication).applicationComponent.inject(this)
     }
 
     override fun onCreateView(
@@ -31,7 +33,7 @@ class RoomFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        appContainer.roomViewModel.room.observe(viewLifecycleOwner, Observer {
+        roomViewModel.room?.observe(viewLifecycleOwner, Observer {
             roomNameText.text = it.name_room
             priceRoomNameText.text = it.price.toString()
         })
@@ -45,7 +47,7 @@ class RoomFragment : Fragment(), View.OnClickListener {
     }
 
     private fun getRoomByID() {
-        appContainer.roomViewModel.getRoomId(roomIDInputText.text.toString())
+  roomViewModel.getRoomId(roomIDInputText.text.toString())
     }
 }
 
